@@ -26,10 +26,39 @@
         </ul>
     </p>
     <script type="text/javascript">
+
       var guestName = prompt("WTF is your name, mate?");
       alert("Good to meet you, " + guestName);
       var guestAnswer = prompt("Why are you here, " + guestName + "?");
       alert(guestAnswer + ": ORLY? Is that the best you could come up with?");
+
+      var quest1 = prompt("What is my last name?");
+      if(quest1 === "Harnois") {
+        console.log("User entered: " + quest1);
+        alert("Congrats, " + guestName + ", you're right! it's " + quest1)
+      } else {
+        console.log("User entered: " + quest1);
+        alert("WRONG, SO. WRONG. DAMNIT " + guestName + "It's actually Harnois.");
+      }
+
+      var quest2 = prompt("What is my favorite animal?");
+      if(quest2 === "Hyacinth Macaw") {
+        console.log("User entered: " + quest2);
+        alert("Correct. You know me well, " + guestName);
+      } else {
+        console.log("User entered: " + quest2);
+        alert("False. This one is tricky, " + guestName + ". Hyacinth Macaw is the answer.");
+      }
+
+      var quest3 = prompt("Where do I work?");
+      if(quest3 === "Code Fellows") {
+        console.log("User entered: " + quest3);
+        alert("How could you not know that, " + guestName + "?");
+      } else {
+        console.log("User entered: " + quest3);
+        alert("Seriously? You don't know, " + guestName + "It's actually Code Fellows.");
+      }
+      
     </script>
   </body>
 </html>
