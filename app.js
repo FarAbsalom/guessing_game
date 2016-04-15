@@ -2,43 +2,60 @@ var pElOne = document.getElementById('answerOne');
 var pElTwo = document.getElementById('answerTwo');
 var pElThree = document.getElementById('answerThree');
 var pElFour = document.getElementById('answerFour');
+var pElFive = document.getElementById('answerFive');
 
 var guestName = prompt("WTF is your name, mate?");
 
-var els = [pElOne, pElTwo, pElThree, pElFour];
+var els = [pElOne, pElTwo, pElThree, pElFour, pElFive];
 var questions = [
   'What is my last name?',
   'What is my favorite animal?',
   'Where do I work?',
   'What is my favorite number?',
+  'What are my favorite musicians'
 ];
 var answers = [
   "harnois",
   "hyacinth macaw",
   "code fellows",
   6,
+  ["Flavr Blue",
+  "Sohn",
+  "Purity Ring"],
 ];
 
-function game(questions, answers, els) {
+function game(question, answer, el) {
   var userInput = prompt(questions);
   if (userInput.toLowerCase() === answers) {
-    els.textContent = "Congrats, " + guestName + ", you're right!";
+    el.textContent = "Congrats, " + guestName + ", you're right!";
   } else if (parseInt(userInput) && isNaN(userInput) === false) {
     var counter = 0;
     while (counter <= 2) {
       if (userInput === 6) {
-        els.textContent = "You win!...Nothing!";
+        el.textContent = "You win!...Nothing!";
         break;
       } else if (userInput < 6) {
-        els.textContent = "Wrong. Try something higher, " + guestName + ".";
+        el.textContent = "Wrong. Try something higher, " + guestName + ".";
         counter++;
+        userInput=parseInt(prompt(questions));
       } else if (userInput > 6) {
-        els.textContent = "Wrong. Try something lower, " + guestName + ".";
+        el.textContent = "Wrong. Try something lower, " + guestName + ".";
         counter++;
+        userInput=parseInt(prompt(questions));
       }
+    } else if (question === questions[4]) {
+    for(var j = 0; j < answers[4].length; j++) {
+      if (userInput.toLowerCase() === answers[4][j]) {
+      el.textContent = "you win!...Nothing!";
+      userInput=parseInt(prompt(questions));
+      break;
+    } else {
+      el.textContent = "Wrong. Wrong. Wrong."
+      counter++;
     }
+  }
   } else {
-    els.textContent = "Is that the best you could come up with, " + guestName + "?";
+    el.textContent = "Is that the best you could come up with, " + guestName + "?";
   }
 }
 
