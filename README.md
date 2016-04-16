@@ -9,4 +9,4 @@ During this assignment:
 - Move the alerts into the browser level
 - linking JS with an HTML file
 - Linked a CSS style sheet
--
+- Updated the js file and added changes that the instructor recommended
