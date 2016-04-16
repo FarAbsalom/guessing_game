@@ -10,12 +10,16 @@ p {
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 40px;
 }
 
 #Education {
   font-family: sans-serif;
   color:
+}
+
+.question {
+  font-size: 30px;
 }
 
 .Box {

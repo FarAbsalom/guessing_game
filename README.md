@@ -11,3 +11,4 @@ During this assignment:
 - Linked a CSS style sheet
 - Updated the js file and added changes that the instructor recommended
 - Added styling elements to the html file via the style.css sheet
+- Embedded a video
