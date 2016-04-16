@@ -10,3 +10,4 @@ During this assignment:
 - linking JS with an HTML file
 - Linked a CSS style sheet
 - Updated the js file and added changes that the instructor recommended
+- Added styling elements to the html file via the style.css sheet

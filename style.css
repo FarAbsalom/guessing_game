@@ -1,5 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light|Didact+Gothic);
+
 body {
-  background-color: #e6e6e6;
+  background-color: #091F92;
 }
 
 p {
@@ -8,5 +10,30 @@ p {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 20px;
+}
+
+#Education {
+  font-family: sans-serif;
+  color:
+}
+
+.Box {
+  border-style: groove;
+  border-color: white;
+}
+
+.mugshot {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+html {
+  text-align: center;
+  color: white;
+}
+
+li {
+  list-style-type: none;
 }
