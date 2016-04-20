@@ -7,13 +7,9 @@
 
   var els = [
     document.getElementById('answerOne'),
-    document.getElementById('image1').innerHTML="<img src='http://pix.iemoji.com/images/emoji/apple/ios-9/256/deeper-brown-thumbs-up-sign.png' border='0'/></a>",
     document.getElementById('answerTwo'),
-    document.getElementById('image2').innerHTML="<img src='http://pix.iemoji.com/images/emoji/apple/ios-9/256/deeper-brown-thumbs-up-sign.png' border='0'/></a>",
     document.getElementById('answerThree'),
-    document.getElementById('image3').innerHTML="<img src='http://pix.iemoji.com/images/emoji/apple/ios-9/256/deeper-brown-thumbs-up-sign.png' border='0'/></a>",
     document.getElementById('answerFour'),
-    document.getElementById('image4').innerHTML="<img src='http://pix.iemoji.com/images/emoji/apple/ios-9/256/deeper-brown-thumbs-up-sign.png' border='0'/></a>",
   ];
 
   var questions = [
@@ -24,11 +20,19 @@
   ];
 
   var answers = [
-    'harnois',
-    'hyacinth macaw',
-    'code fellows',
+    'hulsey',
+    'dogs',
+    'the gottman institute',
     6
   ];
+
+  var correctImage = [
+    document.getElementById('image1').innerHTML="<img src='http://pix.iemoji.com/images/emoji/apple/ios-9/256/deeper-brown-thumbs-up-sign.png' border='0'/></a>",
+    document.getElementById('image2').innerHTML="<img src='http://pix.iemoji.com/images/emoji/apple/ios-9/256/deeper-brown-thumbs-up-sign.png' border='0'/></a>",
+    document.getElementById('image3').innerHTML="<img src='http://pix.iemoji.com/images/emoji/apple/ios-9/256/deeper-brown-thumbs-up-sign.png' border='0'/></a>",
+    document.getElementById('image4').innerHTML="<img src='http://pix.iemoji.com/images/emoji/apple/ios-9/256/deeper-brown-thumbs-up-sign.png' border='0'/></a>",
+  ];
+
 
 function game(question, answer, element) {
   var counter = 2;
@@ -58,22 +62,30 @@ function game(question, answer, element) {
 
     if (counter > 0) {
       correctAnswers++;
+      correctImage++;
+      els[i].className="correct";
       element.textContent = 'Congrats! You got the right answer: ' + answer;
     } else {
+      els[i].className="incorrect";
       element.textContent = 'Incorrect! ' + answer + ', was the wrong answer';
     }
   } else {
     if (userInput === answer) {
       correctAnswers++;
+
       element.textContent = 'Congrats! That is the right answer: ' + answer.charAt(0).toUpperCase() + answer.slice(1);
+      els[i].className="correct";
+      console.log(answers);
     } else {
       element.textContent = 'Sorry, ' + answer.charAt(0).toUpperCase() + answer.slice(1) + " was the right answer";
+      els[i].className="incorrect";
+      console.log(answers);
     }
   }
-  var ele = document.getElementById('HelloWorld');
+  document.getElementById('info').textContent = 'You currently have answered ' + correctAnswers + ' question(s) correct.';
 }
 
   for(var i = 0; i < questions.length; i++) {
-    game(questions[i], answers[i], els[i]);
+    game(questions[i], answers[i], els[i], correctImage[1]);
   }
 })()

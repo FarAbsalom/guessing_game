@@ -35,7 +35,7 @@ h1 {
 
 html {
   text-align: center;
-  color: white;
+  color:
 }
 
 li {
@@ -47,4 +47,9 @@ li {
 }
 .incorrect {
   color: red;
+}
+
+img {
+  height: 200px;
+  width: 200px;
 }
