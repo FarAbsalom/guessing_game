@@ -41,3 +41,10 @@ html {
 li {
   list-style-type: none;
 }
+
+.correct {
+  color: green;
+}
+.incorrect {
+  color: red;
+}
