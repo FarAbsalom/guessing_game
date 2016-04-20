@@ -1,8 +1,5 @@
 #Class 6 | Assignment 6#
 
-Originally created by: Chris
-
-Forked and edited by: Cody
 
 During this assignment:
 - Move login into functions
