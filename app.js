@@ -1,88 +1,93 @@
-var guestName = prompt("WTF is your name, mate?");
-alert("Good to meet you, " + guestName);
-console.log("User entered: " + guestName);
+(function() {
+  var correctAnswers = 0;
+  console.log(correctAnswers);
+  var userName = prompt("Hi There, What is your name?");
 
-var guestAnswer = prompt("Why are you here, " + guestName + "?");
-alert(guestAnswer + ": ORLY? Is that the best you could come up with?");
-console.log("User entered: " + guestAnswer);
+  document.getElementById("introduction").textContent = "Welcome to my guessing game! " + userName + ". Good luck.";
 
-var counterRight = 0;
-var counterWrong = 0;
-var quest1 = prompt("What is my last name?").toLowerCase();
+  var els = [
+    document.getElementById('answerOne'),
+    document.getElementById('answerTwo'),
+    document.getElementById('answerThree'),
+    document.getElementById('answerFour'),
+  ];
 
-if(quest1 === "harnois") {
-  console.log("User entered: " + quest1);
-  alert("Congrats, " + guestName + ", you're right! it's Harnois.")
-  counterRight++;
-  console.log("counterRight = " + counterRight);
-} else {
-  console.log("User entered: " + quest1);
-  alert("WRONG, SO. WRONG. DAMNIT " + guestName + "It's actually Harnois.");
-  counterWrong++;
-  console.log("counterWrong = " + counterWrong);;
-}
+  var questions = [
+    'What is my last name?',
+    'What is my favorite animal?',
+    'Where do I work?',
+    'What is my favorite number?',
+  ];
 
-var quest2 = prompt("What is my favorite animal?").toLowerCase();
-if(quest2 === "hyacinth macaw") {
-  console.log("User entered: " + quest2);
-  alert("Correct. You know me well, " + guestName);
-  counterRight++;
-  console.log("counterRight = " + counterRight);
-} else {
-  console.log("User entered: " + quest2);
-  alert("False. This one is tricky, " + guestName + ". Hyacinth Macaw is the answer.");
-  counterWrong++;
-  console.log("counterWrong = " + counterWrong);;
-}
+  var answers = [
+    'hulsey',
+    'dogs',
+    'the gottman institute',
+    6
+  ];
 
-var quest3 = prompt("Where do I work?").toLowerCase();
-if(quest3 === "code fellows") {
-  console.log("User entered: " + quest3);
-  alert("How could you not know that, " + guestName + "?");
-  counterRight++;
-  console.log("counterRight = " + counterRight);
-} else {
-  console.log("User entered: " + quest3);
-  alert("Seriously? You don't know, " + guestName + "? It's actually Code Fellows.");
-  counterWrong++;
-  console.log("counterWrong = " + counterWrong);;
-}
+  var answerImage = [
+    document.getElementById('image1'),
+    document.getElementById('image2'),
+    document.getElementById('image3'),
+    document.getElementById('image4'),
+  ];
 
-var counterNum = 0;
-var userGuess = parseInt(prompt("Guess my fave number:"));
-console.log("User entered: " + userGuess);
 
-while(counterNum < 2) {
-  if(userGuess === 6) {
-    alert("You win!...nothing!");
-    counterRight++
-    alert("You guessed " + counterRight + "questions correctly!");
-    alert("You guessed " + counterWrong + "questions incorrectly!");
-    break;
-  } else if (userGuess < 6) {
-    alert("Wrong. Try something higher, " + guestName + ".");
+function game(question, answer, element, image) {
+  var counter = 2;
+  var userInput = prompt(question).toLowerCase();
 
-    counterWrong++;
-    counterNum++;
-
-    console.log("counterWrong = " + counterWrong);
-    console.log("counterNum = " + counterNum);
-    var userGuess = parseInt(prompt("Guess my fave number:"));
-  } else if (userGuess > 6) {
-    alert("Wrong. Try something lower, " + guestName + ".");
-
-    counterWrong++;
-    counterNum++;
-
-    console.log("counterWrong = " + counterWrong);
-    console.log("counterNum = " + counterNum);
-
-    var userGuess = parseInt(prompt("Guess my fave number:"));
+  if (isNaN(parseInt(userInput)) === false) {
+    userInput = parseInt(userInput);
   }
+
+  if (typeof answer === 'number') {
+    while (userInput !== answer) {
+      if (counter === 0) {
+        break;
+      }
+
+      if(isNaN(userInput)) {
+        userInput = parseInt(prompt('Try guessing a number.\n you have ' + counter + " guesses left."));
+        counter--;
+      } else if (userInput > answer) {
+        userInput = parseInt(prompt('Too high! Guess again.\n You have ' + counter + " guesses left."));
+        counter--;
+      } else {
+        userInput = parseInt(prompt('Too low! Guess again.\n You have ' + counter + " guesses left."));
+        counter--;
+      }
+    }
+
+    if (counter > 0) {
+      correctAnswers++;
+      image.innerHTML = "<img src='http://pix.iemoji.com/images/emoji/apple/ios-9/256/deeper-brown-thumbs-up-sign.png' border='0'/>";
+      element.className = "correct";
+      element.textContent = 'Congrats! You got the right answer: ' + answer;
+    } else {
+      document.getElementById('image4').innerHTML="<img src='http://1.bp.blogspot.com/-7y6Zov44bCg/U5hYv1g2dPI/AAAAAAAAIwc/iLTnoALe7Ms/s1600/thumb-down-emoticon.png' border='0'/>";
+      element.className = "incorrect";
+      element.textContent = 'Incorrect! ' + answer + ', was the wrong answer';
+    }
+  } else {
+    if (userInput === answer) {
+      correctAnswers++;
+      image.innerHTML="<img src='http://pix.iemoji.com/images/emoji/apple/ios-9/256/deeper-brown-thumbs-up-sign.png' border='0'/>";
+      element.textContent = 'Congrats! That is the right answer: ' + answer.charAt(0).toUpperCase() + answer.slice(1);
+      element.className = "correct";
+      console.log(answers);
+    } else {
+      image.innerHTML="<img src='http://1.bp.blogspot.com/-7y6Zov44bCg/U5hYv1g2dPI/AAAAAAAAIwc/iLTnoALe7Ms/s1600/thumb-down-emoticon.png' border='0'/>";
+      element.textContent = 'Sorry, ' + answer.charAt(0).toUpperCase() + answer.slice(1) + " was the right answer";
+      element.className = "incorrect";
+      console.log(answers);
+    }
+  }
+  document.getElementById('info').textContent = 'You currently have answered ' + correctAnswers + ' question(s) correct.';
 }
 
-alert("Wrong again. Game over, " + guestName + ". Correct answers: " + counterRight
-+ " Incorrect answer: " + counterWrong);
-
-console.log("counterWrong = " + counterWrong);
-console.log("counterNum = " + counterNum);
+  for(var i = 0; i < questions.length; i++) {
+    game(questions[i], answers[i], els[i], answerImage[i])
+  }
+})()

@@ -1,0 +1,51 @@
+@import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light|Didact+Gothic);
+
+body {
+  background-color: beige;
+}
+
+p {
+  font-family: helvetica, sans-serif, georgia;
+  padding-left: 10px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+#Education {
+  font-family: sans-serif;
+  color:
+}
+
+.question {
+  font-size: 30px;
+}
+
+.Box {
+  padding: auto;
+  border-style: groove;
+  border-color: white;
+}
+
+html {
+  text-align: center;
+  color:
+}
+
+li {
+  list-style-type: none;
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
+
+img {
+  height: 200px;
+  width: 200px;
+}
