@@ -1,5 +1,8 @@
 #Class 6 | Assignment 6#
 
+Created by Cody Hulsey
+
+Assignment completion: 4/20/2016
 
 During this assignment:
 - Move login into functions
