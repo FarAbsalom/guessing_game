@@ -26,7 +26,7 @@
     6
   ];
 
-  var correctImage = [
+  var answerImage = [
     document.getElementById('image1'),
     document.getElementById('image2'),
     document.getElementById('image3'),
@@ -62,23 +62,23 @@ function game(question, answer, element, image) {
 
     if (counter > 0) {
       correctAnswers++;
-      image.innerHTML="<img src='http://pix.iemoji.com/images/emoji/apple/ios-9/256/deeper-brown-thumbs-up-sign.png' border='0'/></a>";
+      image.innerHTML="<img src='http://pix.iemoji.com/images/emoji/apple/ios-9/256/deeper-brown-thumbs-up-sign.png' border='0'/>";
       element.className = "correct";
       element.textContent = 'Congrats! You got the right answer: ' + answer;
     } else {
-      document.getElementById('image4').innerHTML="<img src='http://1.bp.blogspot.com/-7y6Zov44bCg/U5hYv1g2dPI/AAAAAAAAIwc/iLTnoALe7Ms/s1600/thumb-down-emoticon.png' border='0'/></a>";
+      document.getElementById('image4').innerHTML="<img src='http://1.bp.blogspot.com/-7y6Zov44bCg/U5hYv1g2dPI/AAAAAAAAIwc/iLTnoALe7Ms/s1600/thumb-down-emoticon.png' border='0'/>";
       element.className="incorrect";
       element.textContent = 'Incorrect! ' + answer + ', was the wrong answer';
     }
   } else {
     if (userInput === answer) {
       correctAnswers++;
-      image.innerHTML="<img src='http://pix.iemoji.com/images/emoji/apple/ios-9/256/deeper-brown-thumbs-up-sign.png' border='0'/></a>";
+      image.innerHTML="<img src='http://pix.iemoji.com/images/emoji/apple/ios-9/256/deeper-brown-thumbs-up-sign.png' border='0'/>";
       element.textContent = 'Congrats! That is the right answer: ' + answer.charAt(0).toUpperCase() + answer.slice(1);
       element.className = "correct";
       console.log(answers);
     } else {
-      image.innerHTML="<img src='http://1.bp.blogspot.com/-7y6Zov44bCg/U5hYv1g2dPI/AAAAAAAAIwc/iLTnoALe7Ms/s1600/thumb-down-emoticon.png' border='0'/></a>";
+      image.innerHTML="<img src='http://1.bp.blogspot.com/-7y6Zov44bCg/U5hYv1g2dPI/AAAAAAAAIwc/iLTnoALe7Ms/s1600/thumb-down-emoticon.png' border='0'/>";
       element.textContent = 'Sorry, ' + answer.charAt(0).toUpperCase() + answer.slice(1) + " was the right answer";
       element.className = "incorrect";
       console.log(answers);
@@ -88,6 +88,6 @@ function game(question, answer, element, image) {
 }
 
   for(var i = 0; i < questions.length; i++) {
-    game(questions[i], answers[i], els[i], correctImage[i])
+    game(questions[i], answers[i], els[i], answerImage[i])
   }
 })()

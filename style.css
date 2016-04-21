@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Shadows+Into+Light|Didact+Gothic);
 
 body {
-  background-color: #091F92;
+  background-color: beige;
 }
 
 p {
@@ -23,6 +23,7 @@ h1 {
 }
 
 .Box {
+  padding: auto;
   border-style: groove;
   border-color: white;
 }
