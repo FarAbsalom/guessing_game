@@ -28,12 +28,6 @@ h1 {
   border-color: white;
 }
 
-.mugshot {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 html {
   text-align: center;
   color:
@@ -46,6 +40,7 @@ li {
 .correct {
   color: green;
 }
+
 .incorrect {
   color: red;
 }
